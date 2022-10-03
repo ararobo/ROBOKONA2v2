@@ -13,7 +13,7 @@ double on = 25;
 int led = 15;
 int mode;
 int move=0;
-int pwm=110;
+int pwm=110;//速度
  void setup() {
   pinMode(13,INPUT);
   pinMode(led, OUTPUT);
@@ -82,7 +82,7 @@ ledcWrite(1, 0);
 
      if( Ps3.event.button_down.r1 ){
    for (size_t i = 0; i <= 195; i++)
-  {ledcWrite(5,i);
+  {ledcWrite(5,i);//ベルト
   ledcWrite(4, 0);
 if (Ps3.event.button_up.r1){
     i=0; break;}
@@ -91,7 +91,7 @@ if (Ps3.event.button_up.r1){
   } 
         if( Ps3.event.button_down.r2 ){
    for (size_t i = 0; i <= pwm; i++)
-  {ledcWrite(6,i);
+  {ledcWrite(6,i);//ローラー
   ledcWrite(7, 0);
 if (Ps3.event.button_up.r2){
     i=0; break;}
@@ -108,7 +108,7 @@ if( Ps3.event.button_up.r2 )
 {ledcWrite(6, 0);
     ledcWrite(7,0);
 }
-if(Ps3.event.button_up.select){
+if(Ps3.event.button_up.select){//未完成なのでつかわないでね
   if(pwm<=190){
     pwm=pwm+1;
       Serial.println(pwm); 
